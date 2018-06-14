@@ -1,0 +1,27 @@
+{
+  "name": "scroll-out.github.docs",
+  "version": "0.0.0",
+  "description": "Documentation for Scroll Out",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "vuepress": "^0.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scroll-out/scroll-out.git"
+  },
+  "author": "Christopher Wallis <christopher.j.wallis@gmail.com> (http://notoriousb1t.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scroll-out/scroll-out/issues"
+  },
+  "homepage": "https://github.com/scroll-out/scroll-out#readme"
+}
