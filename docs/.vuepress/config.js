@@ -7,7 +7,7 @@ module.exports = {
         ["script", { src: "https://unpkg.com/scroll-out@1.1.0/dist/scroll-out.js" }]
     ],
     themeConfig: {
-        nav: [{ text: "Guide", link: "/guide/" }],
+        nav: [{ text: "Guide", link: "/guide.md" }],
         // Assumes GitHub. Can also be a full GitLab url.
         repo: "scroll-out/scroll-out",
         repoLabel: "Contribute!",
