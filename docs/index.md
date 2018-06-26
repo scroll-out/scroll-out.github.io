@@ -4,11 +4,11 @@ home: true
 actionText: Get Scrolling →
 actionLink: /guide.md
 features:
-- title: Progressively Flexible
-  details: Use JavaScript, CSS selectors, or CSS Variables to get your animations on!
+- title: Feature Rich
+  details: Use JavaScript callbacks, CSS selectors, or CSS Variables to animate elements in and out.  You can even create sticky headers and style based on the direction the user is scrolling.
 - title: Ridiculously Small
-  details: At about 1.7k minified and 900 bytes gzipped, this might be one of the smallest scrolling library out there.
-- title: Compatible with IE
+  details: At about 1kb minified and gzipped, this packs a whole lot of features into a small package.
+- title: Progressively Enhanced
   details: Use it on your least favorite platforms and see great results!  It has advanced features for modern browsers, too.
 footer: MIT Licensed | Copyright © 2017-present Christopher Wallis
 ---

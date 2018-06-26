@@ -39,6 +39,14 @@ ScrollOut({
 });
 ```
 
+## Demos
+
+### Scaling Gallery on Scroll
+
+This demo shows how to use how to use the css property ```--visible-y``` to change the shape and visibility of targets as the element is scrolled.
+
+https://codepen.io/notoriousb1t/pen/GGXgbP
+
 ## Tips (How do I?...)
 
 ### Perform a Fade In with CSS
@@ -217,12 +225,13 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 | Options          | Description                                                                                                                                                                    |
 | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| scope            | Use this is specify the root element to use when resolving targets. If not specified, the scrollingElement is used.                                                            |
-| scrollingElement | The scrolling container. When scope is not specified, it is assumed that all targets are children of this element. If not specified, the documentElement is used.              |
-| targets          | An optional list of elements or a css selector. By default, this is `[data-scroll]`                                                                                            |
-| once             | Elements will only be changed from scroll-out to scroll-in once. This is useful if you want to transition all elements exactly once. The default value is false.               |
-| offset           | The targets become visible when they reach this distance in pixels from the top of the screen. Setting this option overrides all other collision detection                     |
-| threshold        | The ratio of the element that must be visible before it is marked as visible. Providing the value 0.2 would require 20% of the element to be visible before marking it visible |
+| cssProps | If true, the ```data-scroll``` elements and the ```scrollingElement``` will be decorated with css properties. If false, only data attributes will be used. |
+| offset | The targets become visible when they reach this distance in pixels from the top of the screen. Setting this option overrides all other collision detection |
+| once | Elements will only be changed from scroll-out to scroll-in once. This is useful if you want to transition all elements exactly once. The default value is false. |
+| scope | Use this is specify the root element to use when resolving targets. If not specified, the scrollingElement is used. |
+| scrollingElement | The scrolling container. When scope is not specified, it is assumed that all targets are children of this element. If not specified, the documentElement is used. |
+| targets | An optional list of elements or a css selector. By default, this is `[data-scroll]` |
+| threshold | The ratio of the element that must be visible before it is marked as visible. Providing the value 0.2 would require 20% of the element to be visible before marking it visible |
 
 ### Events
 
@@ -236,7 +245,11 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 | Property | Description                                                                                   |
 | :------- | :-------------------------------------------------------------------------------------------- |
-| visible  | True if the element is visible in the viewport. Can be tweaked by using the threshold option. |
+| offsetX  | The distance from the left of the scrolling element |
+| offsetY  | The distance from the top of the scrolling element |
+| elementWidth  | The width of the element |
+| elementHeight  | The height of the element |
+| visible  | Equal to 1 if the element is visible in the viewport, 0 if not. Can be tweaked by using the threshold option. |
 | visibleX | The ratio of visible horizontal content. 0 if invisible, 1 if 100% visible                    |
 | visibleY | The ratio of visible vertical content. 0 if invisible, 1 if 100% visible                      |
 
@@ -248,29 +261,26 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 | ```.update()```   | Manually checks if the elements have been updated. This is intended for when a JS framework changes the visual layout of the DOM. |
 | ```.teardown()``` | If you no longer need a ScrollOut instance, call the `teardown()` function:                                                       |
 
-### Scrolling Element Data Attributes
+### Scroll Element Data Attributes
 
 | Variable      | Description                                                                                                                     |
 | :----------------- | :----------------------------------  |
-| ```data-dir-x``` | The current horizontal direction -1, 1, or 0 of the scroll. -1 is up, and 1 is down. | 
-| ```data-dir-y``` | The current vertical direction -1, 1, or 0 of the scroll. -1 is left, and 1 is right. | 
+| ```data-scroll-dir-x``` | The current horizontal direction -1, 1, or 0 of the scroll. -1 is up, and 1 is down. | 
+| ```data-scroll-dir-y``` | The current vertical direction -1, 1, or 0 of the scroll. -1 is left, and 1 is right. | 
 
+
+### Scroll Target Data Attributes
+
+| Variable      | Description                                                                                                                     |
+| :----------------- | :----------------------------------  |
+| ```data-scroll``` | "in" or "out".  "in" if the element is visible, "out" if it is not.  Decorate your elements with this attribute to automatically target these elements. |
 
 ### Scroll Element CSS Variables
 
 | Variable      | Description                                                                                                                     |
 | :----------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| ```--scroll-avg-x``` | The average horizontal sign between -1 and 1 of the last 20 scroll/resize events.  You can use this in equations to fake momentum |
 | ```--scroll-dir-x``` | The current horizontal direction -1, 1, or 0 of the scroll. -1 is up, and 1 is down. |
-| ```--scroll-avg-y``` | The average vertical sign between -1 and 1 of the last 20 scroll/resize events.  You can use this in equations to fake momentum |
 | ```--scroll-dir-y``` | The current vertical direction -1, 1, or 0 of the scroll. -1 is left, and 1 is right. |
-
-
-### Scrolling Target Data Attributes
-
-| Variable      | Description                                                                                                                     |
-| :----------------- | :----------------------------------  |
-| ```data-scroll``` | "in" or "out".  "in" if the element is visible, "out" if it is not.  Decorate your elements with this attribute to automatically target these elements. |
 
 
 ### Scroll Target CSS Variables
@@ -278,5 +288,11 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 | Variable      | Description |
 | :----------  |  :--------------------------------------------------------------------------------------------------------------- |
-| ```--percent-visible-x``` | The current ratio of visible content on the horizontal axis (0 to 1) |
-| ```--percent-visible-y``` | The current ratio of visible content on the vertical axis (0 to 1)  |
+| ```--element-width``` | The current width of the element |
+| ```--element-height``` | The current height of the element |
+| ```--offset-x``` | The number of pixels from the left side of the scrolling element |
+| ```--offset-y``` | The number of pixels from the top of the scrolling element |
+| ```--visible``` | The value is 1 if the element is considered visible, 0 if not. |
+| ```--visible-x``` | The current ratio of visible content on the horizontal axis (0 to 1) |
+| ```--visible-y``` | The current ratio of visible content on the vertical axis (0 to 1)  |
+
