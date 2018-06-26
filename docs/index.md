@@ -5,7 +5,7 @@ actionText: Get Scrolling →
 actionLink: /guide.md
 features:
 - title: Feature Rich
-  details: Use JavaScript callbacks, CSS selectors, or CSS Variables to animate elements in and out.  You can even create sticky headers and style based on the direction the user is scrolling.
+  details: Use JavaScript callbacks, CSS selectors, or CSS Variables to animate elements in and out.  You can even create sticky headers.
 - title: Ridiculously Small
   details: At about 1kb minified and gzipped, this packs a whole lot of features into a small package.
 - title: Progressively Enhanced

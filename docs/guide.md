@@ -45,7 +45,7 @@ ScrollOut({
 
 This demo shows how to use how to use the css property ```--visible-y``` to change the shape and visibility of targets as the element is scrolled.
 
-https://codepen.io/notoriousb1t/pen/GGXgbP
+[https://codepen.io/notoriousb1t/pen/GGXgbP](https://codepen.io/notoriousb1t/pen/GGXgbP)
 
 ## Tips (How do I?...)
 
