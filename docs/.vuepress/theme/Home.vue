@@ -2,10 +2,9 @@
   <div class="home">
     <div class="hero">
       <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
-      <h1>{{ data.heroText || $title || 'Hello' }}</h1>
-      <p class="description">
-        {{ data.tagline || $description || 'Welcome to your VuePress site' }}
-      </p>
+      <h1 class="hero-wrapper">
+        <hero />
+      </h1> 
       <p class="action" v-if="data.actionText && data.actionLink">
         <NavLink class="action-button" :item="actionLink"/>
       </p>
@@ -25,9 +24,10 @@
 
 <script>
 import NavLink from './NavLink.vue'
+import Hero from './Hero.vue';
 
 export default {
-  components: { NavLink },
+  components: { NavLink, Hero },
   computed: {
     data () {
       return this.$page.frontmatter
@@ -44,7 +44,8 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
+.hero-wrapper
+  max-width: 832px;
 .home
   padding $navbarHeight 2rem 0
   max-width 960px
