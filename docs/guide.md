@@ -237,7 +237,7 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 | Event                                    | Description                                     |
 | :--------------------------------------- | :---------------------------------------------- |
-| onShown(element, ctx, scrollingElement)  | Callback for when an element is show            |
+| onShown(element, ctx, scrollingElement)  | Callback for when an element is shown           |
 | onHidden(element, ctx, scrollingElement) | Callback for when an element is hidden          |
 | onChange(element, ctx, scrollingElement) | Callback for when an element changes visibility |
 
@@ -249,6 +249,8 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 | offsetY  | The distance from the top of the scrolling element |
 | elementWidth  | The width of the element |
 | elementHeight  | The height of the element |
+| intersectX | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom |
+| intersectY | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right |
 | visible  | Equal to 1 if the element is visible in the viewport, 0 if not. Can be tweaked by using the threshold option. |
 | visibleX | The ratio of visible horizontal content. 0 if invisible, 1 if 100% visible                    |
 | visibleY | The ratio of visible vertical content. 0 if invisible, 1 if 100% visible                      |
@@ -290,6 +292,8 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 | :----------  |  :--------------------------------------------------------------------------------------------------------------- |
 | ```--element-width``` | The current width of the element |
 | ```--element-height``` | The current height of the element |
+| ```--intersect-x``` | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom |
+| ```--intersect-y``` | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right  |
 | ```--offset-x``` | The number of pixels from the left side of the scrolling element |
 | ```--offset-y``` | The number of pixels from the top of the scrolling element |
 | ```--visible``` | The value is 1 if the element is considered visible, 0 if not. |
