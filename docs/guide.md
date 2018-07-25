@@ -39,6 +39,10 @@ ScrollOut({
 });
 ```
 
+## Compatibility
+
+The core features of ScrollOut are compatible with all modern browsers.  They also work on Internet Explorer 11. Features that require CSS Custom Properties only work on select browsers.
+
 ## Demos
 
 ### Scaling Gallery on Scroll
