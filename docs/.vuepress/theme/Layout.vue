@@ -30,111 +30,127 @@ import Sidebar from "./Sidebar.vue";
 import { resolveSidebarItems } from "./util";
 
 export default {
-    components: { Home, Page, Sidebar, Navbar },
-    data() {
-        return {
-            isSidebarOpen: false,
-            so: undefined
-        };
+  components: { Home, Page, Sidebar, Navbar },
+  data() {
+    return {
+      isSidebarOpen: false,
+      so: undefined
+    };
+  },
+
+  computed: {
+    shouldShowNavbar() {
+      const { themeConfig } = this.$site;
+      const { frontmatter } = this.$page;
+      if (frontmatter.navbar === false || themeConfig.navbar === false) {
+        return false;
+      }
+      return (
+        this.$title ||
+        themeConfig.logo ||
+        themeConfig.repo ||
+        themeConfig.nav ||
+        this.$themeLocaleConfig.nav
+      );
     },
-
-    computed: {
-        shouldShowNavbar() {
-            const { themeConfig } = this.$site;
-            const { frontmatter } = this.$page;
-            if (frontmatter.navbar === false || themeConfig.navbar === false) {
-                return false;
-            }
-            return this.$title || themeConfig.logo || themeConfig.repo || themeConfig.nav || this.$themeLocaleConfig.nav;
-        },
-        shouldShowSidebar() {
-            const { frontmatter } = this.$page;
-            return !frontmatter.layout && !frontmatter.home && frontmatter.sidebar !== false && this.sidebarItems.length;
-        },
-        sidebarItems() {
-            return resolveSidebarItems(this.$page, this.$route, this.$site, this.$localePath);
-        },
-        pageClasses() {
-            const userPageClass = this.$page.frontmatter.pageClass;
-            return [
-                {
-                    "no-navbar": !this.shouldShowNavbar,
-                    "sidebar-open": this.isSidebarOpen,
-                    "no-sidebar": !this.shouldShowSidebar
-                },
-                userPageClass
-            ];
-        }
+    shouldShowSidebar() {
+      const { frontmatter } = this.$page;
+      return (
+        !frontmatter.layout &&
+        !frontmatter.home &&
+        frontmatter.sidebar !== false &&
+        this.sidebarItems.length
+      );
     },
-
-    mounted() {
-        window.addEventListener("scroll", this.onScroll);
-
-        // configure progress bar
-        nprogress.configure({ showSpinner: false });
-
-        this.$router.beforeEach((to, from, next) => {
-            if (to.path !== from.path && !Vue.component(to.name)) {
-                nprogress.start();
-            }
-            next();
-        });
-
-        this.$router.afterEach(() => {
-            nprogress.done();
-            this.isSidebarOpen = false;
-        });
-
-        this.so = ScrollOut({
-            scope: this.$el,
-            targets: ".extra-class",
-            threshold: .1
-        });
+    sidebarItems() {
+      return resolveSidebarItems(
+        this.$page,
+        this.$route,
+        this.$site,
+        this.$localePath
+      );
     },
-
-    destroyed() {
-        this.so.teardown();
-    },
-
-    methods: {
-        toggleSidebar(to) {
-            this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
+    pageClasses() {
+      const userPageClass = this.$page.frontmatter.pageClass;
+      return [
+        {
+          "no-navbar": !this.shouldShowNavbar,
+          "sidebar-open": this.isSidebarOpen,
+          "no-sidebar": !this.shouldShowSidebar
         },
-        // side swipe
-        onTouchStart(e) {
-            this.touchStart = {
-                x: e.changedTouches[0].clientX,
-                y: e.changedTouches[0].clientY
-            };
-        },
-        onTouchEnd(e) {
-            const dx = e.changedTouches[0].clientX - this.touchStart.x;
-            const dy = e.changedTouches[0].clientY - this.touchStart.y;
-            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-                if (dx > 0 && this.touchStart.x <= 80) {
-                    this.toggleSidebar(true);
-                } else {
-                    this.toggleSidebar(false);
-                }
-            }
-        }
+        userPageClass
+      ];
     }
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
+
+    // configure progress bar
+    nprogress.configure({ showSpinner: false });
+
+    this.$router.beforeEach((to, from, next) => {
+      if (to.path !== from.path && !Vue.component(to.name)) {
+        nprogress.start();
+      }
+      next();
+    });
+
+    this.$router.afterEach(() => {
+      nprogress.done();
+      this.isSidebarOpen = false;
+    });
+
+    this.so = ScrollOut({
+      scope: this.$el,
+      targets: ".extra-class",
+      threshold: 0.1
+    });
+  },
+
+  destroyed() {
+    this.so.teardown();
+  },
+
+  methods: {
+    toggleSidebar(to) {
+      this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
+    },
+    // side swipe
+    onTouchStart(e) {
+      this.touchStart = {
+        x: e.changedTouches[0].clientX,
+        y: e.changedTouches[0].clientY
+      };
+    },
+    onTouchEnd(e) {
+      const dx = e.changedTouches[0].clientX - this.touchStart.x;
+      const dy = e.changedTouches[0].clientY - this.touchStart.y;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        if (dx > 0 && this.touchStart.x <= 80) {
+          this.toggleSidebar(true);
+        } else {
+          this.toggleSidebar(false);
+        }
+      }
+    }
+  }
 };
 </script>
 
 <style lang="stylus">
 .extra-class {
-  transition: opacity 250ms linear, transform 250ms ease-in;
+    transition: opacity 250ms linear, transform 250ms ease-in;
 
-  &[data-scroll='in'] {
-    opacity: 1; 
-    transform: translateY(0);
-  }
+    &[data-scroll='in'] {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-  &[data-scroll='out'] {
-    opacity: 0.0001;
-    transform: translateY(20px);
-  }
+    &[data-scroll='out'] {
+        opacity: 0.0001;
+        transform: translateY(20px);
+    }
 }
 </style>
 

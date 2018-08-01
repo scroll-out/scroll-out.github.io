@@ -17,7 +17,7 @@ On document load/ready or in a script at the bottom the of the `<body>`, do the 
 
 ```js
 ScrollOut({
-    /* options */
+  /* options */
 });
 ```
 
@@ -35,19 +35,19 @@ Them import ScrollOut from the package and call it
 import ScrollOut from "scroll-out";
 
 ScrollOut({
-    /* options */
+  /* options */
 });
 ```
 
 ## Compatibility
 
-The core features of ScrollOut are compatible with all modern browsers.  They also work on Internet Explorer 11. Features that require CSS Custom Properties only work on select browsers.
+The core features of ScrollOut are compatible with all modern browsers. They also work on Internet Explorer 11. Features that require CSS Custom Properties only work on select browsers.
 
 ## Demos
 
 ### Scaling Gallery on Scroll
 
-This demo shows how to use how to use the css property ```--visible-y``` to change the shape and visibility of targets as the element is scrolled.
+This demo shows how to use how to use the css property `--visible-y` to change the shape and visibility of targets as the element is scrolled.
 
 [https://codepen.io/notoriousb1t/pen/GGXgbP](https://codepen.io/notoriousb1t/pen/GGXgbP)
 
@@ -59,13 +59,13 @@ Add this to your css.
 
 ```css
 .fade-in {
-    transition: opacity 1s;
+  transition: opacity 1s;
 }
 .fade-in[data-scroll="in"] {
-    opacity: 1;
+  opacity: 1;
 }
 .fade-in[data-scroll="out"] {
-    opacity: 0;
+  opacity: 0;
 }
 ```
 
@@ -83,9 +83,9 @@ When using Animate.css, you can trigger animations by adding the `animated` clas
 
 ```js
 ScrollOut({
-    onShown(el) {
-        el.classList.add("animated");
-    }
+  onShown(el) {
+    el.classList.add("animated");
+  }
 });
 ```
 
@@ -95,16 +95,16 @@ When using animate.css, you may need to force the animation to play a second tim
 
 ```js
 ScrollOut({
-    onShown: function(el) {
-        // remove the class
-        el.classList.remove("animated");
+  onShown: function(el) {
+    // remove the class
+    el.classList.remove("animated");
 
-        // force reflow
-        void el.offsetWidth;
+    // force reflow
+    void el.offsetWidth;
 
-        // re-add the animated cl
-        el.classList.add("animated");
-    }
+    // re-add the animated cl
+    el.classList.add("animated");
+  }
 });
 ```
 
@@ -112,14 +112,14 @@ ScrollOut({
 
 ```js
 ScrollOut({
-    onShown: function(el) {
-        // use the web animation API
-        el.animate([{ opacity: 0 }, { opacity: 1 }], 1000);
-    },
-    onHidden: function(el) {
-        // hide the element initially
-        el.style.opacity = 0;
-    }
+  onShown: function(el) {
+    // use the web animation API
+    el.animate([{ opacity: 0 }, { opacity: 1 }], 1000);
+  },
+  onHidden: function(el) {
+    // hide the element initially
+    el.style.opacity = 0;
+  }
 });
 ```
 
@@ -131,7 +131,7 @@ To use a scrolling pane other than the window, provide a scrollingElement as a c
 
 ```js
 ScrollOut({
-    scrollingElement: ".scrollable-pane"
+  scrollingElement: ".scrollable-pane"
 });
 ```
 
@@ -207,19 +207,19 @@ export default {
 ```ts
 @Component(/**/)
 export class MyComponent implements AfterContentInit, OnDestroy {
-    so: any;
+  so: any;
 
-    constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) {}
 
-    ngAfterContentInit() {
-        this.so = ScrollOut({
-            scope: this.el.nativeElement
-        });
-    }
+  ngAfterContentInit() {
+    this.so = ScrollOut({
+      scope: this.el.nativeElement
+    });
+  }
 
-    ngOnDestroy() {
-        this.so.teardown();
-    }
+  ngOnDestroy() {
+    this.so.teardown();
+  }
 }
 ```
 
@@ -229,13 +229,13 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 | Options          | Description                                                                                                                                                                    |
 | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| cssProps | If true, the ```data-scroll``` elements and the ```scrollingElement``` will be decorated with css properties. If false, only data attributes will be used. |
-| offset | The targets become visible when they reach this distance in pixels from the top of the screen. Setting this option overrides all other collision detection |
-| once | Elements will only be changed from scroll-out to scroll-in once. This is useful if you want to transition all elements exactly once. The default value is false. |
-| scope | Use this is specify the root element to use when resolving targets. If not specified, the scrollingElement is used. |
-| scrollingElement | The scrolling container. When scope is not specified, it is assumed that all targets are children of this element. If not specified, the documentElement is used. |
-| targets | An optional list of elements or a css selector. By default, this is `[data-scroll]` |
-| threshold | The ratio of the element that must be visible before it is marked as visible. Providing the value 0.2 would require 20% of the element to be visible before marking it visible |
+| cssProps         | If true, the `data-scroll` elements and the `scrollingElement` will be decorated with css properties. If false, only data attributes will be used.                             |
+| offset           | The targets become visible when they reach this distance in pixels from the top of the screen. Setting this option overrides all other collision detection                     |
+| once             | Elements will only be changed from scroll-out to scroll-in once. This is useful if you want to transition all elements exactly once. The default value is false.               |
+| scope            | Use this is specify the root element to use when resolving targets. If not specified, the scrollingElement is used.                                                            |
+| scrollingElement | The scrolling container. When scope is not specified, it is assumed that all targets are children of this element. If not specified, the documentElement is used.              |
+| targets          | An optional list of elements or a css selector. By default, this is `[data-scroll]`                                                                                            |
+| threshold        | The ratio of the element that must be visible before it is marked as visible. Providing the value 0.2 would require 20% of the element to be visible before marking it visible |
 
 ### Events
 
@@ -247,60 +247,56 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 ### Event Context
 
-| Property | Description                                                                                   |
-| :------- | :-------------------------------------------------------------------------------------------- |
-| offsetX  | The distance from the left of the scrolling element |
-| offsetY  | The distance from the top of the scrolling element |
-| elementWidth  | The width of the element |
-| elementHeight  | The height of the element |
-| intersectX | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom |
-| intersectY | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right |
-| visible  | Equal to 1 if the element is visible in the viewport, 0 if not. Can be tweaked by using the threshold option. |
-| visibleX | The ratio of visible horizontal content. 0 if invisible, 1 if 100% visible                    |
-| visibleY | The ratio of visible vertical content. 0 if invisible, 1 if 100% visible                      |
+| Property      | Description                                                                                                   |
+| :------------ | :------------------------------------------------------------------------------------------------------------ |
+| offsetX       | The distance from the left of the scrolling element                                                           |
+| offsetY       | The distance from the top of the scrolling element                                                            |
+| elementWidth  | The width of the element                                                                                      |
+| elementHeight | The height of the element                                                                                     |
+| intersectX    | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom                                 |
+| intersectY    | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right                                 |
+| visible       | Equal to 1 if the element is visible in the viewport, 0 if not. Can be tweaked by using the threshold option. |
+| visibleX      | The ratio of visible horizontal content. 0 if invisible, 1 if 100% visible                                    |
+| visibleY      | The ratio of visible vertical content. 0 if invisible, 1 if 100% visible                                      |
 
 ### Methods
 
-| Method      | Description                                                                                                                       |
-| :---------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| ```.index()```    | Manually searches for elements. This is intended for when DOM elements are removed or inserted by a JS framework.                 |
-| ```.update()```   | Manually checks if the elements have been updated. This is intended for when a JS framework changes the visual layout of the DOM. |
-| ```.teardown()``` | If you no longer need a ScrollOut instance, call the `teardown()` function:                                                       |
+| Method        | Description                                                                                                                       |
+| :------------ | :-------------------------------------------------------------------------------------------------------------------------------- |
+| `.index()`    | Manually searches for elements. This is intended for when DOM elements are removed or inserted by a JS framework.                 |
+| `.update()`   | Manually checks if the elements have been updated. This is intended for when a JS framework changes the visual layout of the DOM. |
+| `.teardown()` | If you no longer need a ScrollOut instance, call the `teardown()` function:                                                       |
 
 ### Scroll Element Data Attributes
 
-| Variable      | Description                                                                                                                     |
-| :----------------- | :----------------------------------  |
-| ```data-scroll-dir-x``` | The current horizontal direction -1, 1, or 0 of the scroll. -1 is up, and 1 is down. | 
-| ```data-scroll-dir-y``` | The current vertical direction -1, 1, or 0 of the scroll. -1 is left, and 1 is right. | 
-
+| Variable            | Description                                                                           |
+| :------------------ | :------------------------------------------------------------------------------------ |
+| `data-scroll-dir-x` | The current horizontal direction -1, 1, or 0 of the scroll. -1 is up, and 1 is down.  |
+| `data-scroll-dir-y` | The current vertical direction -1, 1, or 0 of the scroll. -1 is left, and 1 is right. |
 
 ### Scroll Target Data Attributes
 
-| Variable      | Description                                                                                                                     |
-| :----------------- | :----------------------------------  |
-| ```data-scroll``` | "in" or "out".  "in" if the element is visible, "out" if it is not.  Decorate your elements with this attribute to automatically target these elements. |
+| Variable      | Description                                                                                                                                           |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data-scroll` | "in" or "out". "in" if the element is visible, "out" if it is not. Decorate your elements with this attribute to automatically target these elements. |
 
 ### Scroll Element CSS Variables
 
-| Variable      | Description                                                                                                                     |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| ```--scroll-dir-x``` | The current horizontal direction -1, 1, or 0 of the scroll. -1 is up, and 1 is down. |
-| ```--scroll-dir-y``` | The current vertical direction -1, 1, or 0 of the scroll. -1 is left, and 1 is right. |
-
+| Variable         | Description                                                                           |
+| :--------------- | :------------------------------------------------------------------------------------ |
+| `--scroll-dir-x` | The current horizontal direction -1, 1, or 0 of the scroll. -1 is up, and 1 is down.  |
+| `--scroll-dir-y` | The current vertical direction -1, 1, or 0 of the scroll. -1 is left, and 1 is right. |
 
 ### Scroll Target CSS Variables
 
-
-| Variable      | Description |
-| :----------  |  :--------------------------------------------------------------------------------------------------------------- |
-| ```--element-width``` | The current width of the element |
-| ```--element-height``` | The current height of the element |
-| ```--intersect-x``` | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom |
-| ```--intersect-y``` | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right  |
-| ```--offset-x``` | The number of pixels from the left side of the scrolling element |
-| ```--offset-y``` | The number of pixels from the top of the scrolling element |
-| ```--visible``` | The value is 1 if the element is considered visible, 0 if not. |
-| ```--visible-x``` | The current ratio of visible content on the horizontal axis (0 to 1) |
-| ```--visible-y``` | The current ratio of visible content on the vertical axis (0 to 1)  |
-
+| Variable           | Description                                                                   |
+| :----------------- | :---------------------------------------------------------------------------- |
+| `--element-width`  | The current width of the element                                              |
+| `--element-height` | The current height of the element                                             |
+| `--intersect-x`    | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom |
+| `--intersect-y`    | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right |
+| `--offset-x`       | The number of pixels from the left side of the scrolling element              |
+| `--offset-y`       | The number of pixels from the top of the scrolling element                    |
+| `--visible`        | The value is 1 if the element is considered visible, 0 if not.                |
+| `--visible-x`      | The current ratio of visible content on the horizontal axis (0 to 1)          |
+| `--visible-y`      | The current ratio of visible content on the vertical axis (0 to 1)            |
