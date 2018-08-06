@@ -43,13 +43,16 @@ ScrollOut({
 
 The core features of ScrollOut are compatible with all modern browsers. They also work on Internet Explorer 11. Features that require CSS Custom Properties only work on select browsers.
 
-## Demos
+## Demos 
 
-### Scaling Gallery on Scroll
+- [Scaling Gallery on Scroll](https://codepen.io/notoriousb1t/pen/GGXgbP) 
+- [Horizontal Scrolling](https://codepen.io/notoriousb1t/pen/mKzyEw)
+- [Detecting Scroll Direction](https://codepen.io/notoriousb1t/pen/pKxjow) 
 
-This demo shows how to use how to use the css property `--visible-y` to change the shape and visibility of targets as the element is scrolled.
+## What's New?
 
-[https://codepen.io/notoriousb1t/pen/GGXgbP](https://codepen.io/notoriousb1t/pen/GGXgbP)
+- v2.0.0 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/introducing-scroll-out-2) for all the exciting new features in 2.0.0
+
 
 ## Tips (How do I?...)
 
