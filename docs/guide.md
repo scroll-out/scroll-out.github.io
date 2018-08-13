@@ -61,18 +61,18 @@ The core features of ScrollOut are compatible with all modern browsers. They als
 Add this to your css.
 
 ```css
-.fade-in {
+[data-scroll] {
   transition: opacity 1s;
 }
-.fade-in[data-scroll="in"] {
+[data-scroll="in"] {
   opacity: 1;
 }
-.fade-in[data-scroll="out"] {
+[data-scroll="out"] {
   opacity: 0;
 }
 ```
 
-Add this to your page to select `.fade-in`
+Add this to your page to select all elements with `data-scroll` on them.
 
 ```html
 <script>
