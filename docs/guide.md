@@ -48,6 +48,7 @@ The core features of ScrollOut are compatible with all modern browsers. They als
 - [Scaling Gallery on Scroll](https://codepen.io/notoriousb1t/pen/GGXgbP) 
 - [Horizontal Scrolling](https://codepen.io/notoriousb1t/pen/mKzyEw)
 - [Detecting Scroll Direction](https://codepen.io/notoriousb1t/pen/pKxjow) 
+- [Scroll Triggered Elements (Splitting + ScrollOut)](https://codepen.io/notoriousb1t/pen/zLbVEW/?editors=0010) original by [Zacaree](https://codepen.io/Zacaree/)
 
 ## What's New?
 
