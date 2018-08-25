@@ -1,5 +1,8 @@
 <template>  
 <div class="hero">
+    <div class="pointer">
+        <span>👆</span>   
+    </div>
     <svg viewBox="0 0 779 388" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:1.5;">
         <g id="Artboard1" transform="matrix(0.955787,0,0,0.973764,0,0)">
             <rect x="0" y="0" width="814.271" height="397.873" style="fill:none;"/>
@@ -43,10 +46,6 @@
             </g>
         </g>
     </svg>
-
-    <div class="pointer">
-        <span>👆</span>   
-    </div>
 </div>
 </template>
 
@@ -59,8 +58,10 @@ $hero-duration = 3600ms;
 $hero-delay = 750ms;
 
 .hero {
-    width: 100%;
+    width: 68%;
     position: relative;
+    margin: auto;
+    overflow: hidden;
 }
 
 .hero .down {

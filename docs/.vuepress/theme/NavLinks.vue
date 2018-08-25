@@ -107,7 +107,7 @@ export default {
     color: inherit;
 
     &:hover, &.router-link-active {
-      color: $accentColor;
+      color: white;
     }
   }
 
@@ -135,7 +135,7 @@ export default {
 @media (min-width: $MQMobile) {
   .nav-links a {
     &:hover, &.router-link-active {
-      color: $textColor;
+      color: white;
     }
   }
 

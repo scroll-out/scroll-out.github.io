@@ -43,10 +43,24 @@ export default {
 <style lang="stylus">
 @import './styles/config.styl';
 
+$navbar-bg = black;
+$navbar-fg = white; 
+
+
+
 .navbar {
   padding: 0.7rem 1.5rem;
   line-height: $navbarHeight - 1.4rem;
-  position: relative;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $navbarHeight;
+  background-color: $navbar-bg;
+  color: $navbar-fg;
+  box-sizing: border-box;
+  border-bottom: 2px solid $accentColor;
 
   a, span, img {
     display: inline-block;
@@ -62,7 +76,7 @@ export default {
   .site-name {
     font-size: 1.3rem;
     font-weight: 600;
-    color: $textColor;
+    color: $navbar-fg;
     position: relative;
   }
 

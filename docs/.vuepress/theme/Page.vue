@@ -107,6 +107,25 @@ export default {
         `Edit this page`
       );
     }
+  },
+  mounted() {
+    const targets = this.$el.querySelectorAll("h1,h2,h3,h4,h5");
+    if (targets) {
+      import("scroll-out").then(module => {
+        const ScrollOut = module.default;
+        ScrollOut({
+          targets: targets,
+          threshold: 0.9
+        }); 
+      });
+      import("splitting").then(module => {
+        const Splitting = module.default; 
+        Splitting({
+          target: targets,
+          by: "chars"
+        }); 
+      });
+    }
   }
 };
 
@@ -137,11 +156,37 @@ function find(page, items, offset) {
 </script>
 
 <style lang="stylus">
+@import '../../../node_modules/splitting/dist/splitting.css';
+@import '../../../node_modules/splitting/dist/splitting-cells.css';
 @import './styles/config.styl';
 @require './styles/wrapper.styl';
 
 .page {
   padding-bottom: 2rem;
+
+  // header styles
+  h1,h2,h3,h4,h5,h6 {
+    .char {
+      letter-spacing: 1px;
+      transition: transform 500ms;
+      transition-delay: calc(300ms * var(--char-index) / var(--char-total));
+    }
+    .word {
+      overflow-y: hidden;
+    }
+
+    &[data-scroll="out"] .char {
+      transform: translateY(100%);
+    }
+    &[data-scroll="in"] .char {
+      transform: translateY(0);
+    }
+  }
+
+  td:first-child {
+    // attempt to prevent wrapping on tables
+    min-width: 134px;
+  }
 }
 
 .page-edit {

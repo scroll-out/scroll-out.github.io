@@ -11,4 +11,8 @@ features:
 - title: Progressively Enhanced
   details: Use it on your least favorite platforms and see great results!  It has advanced features for modern browsers, too.
 footer: MIT Licensed | Copyright © 2017-present Christopher Wallis
----
+--- 
+
+ScrollOut detects changes in scroll for reveal, parallax, and CSS Variable effects!
+
+Install with `npm i scroll-out -s` or <a href="https://github.com/scroll-out/scroll-out/archive/master.zip" target="_blank" class="action-button smaller ">Download .zip</a>

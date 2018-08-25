@@ -8,14 +8,14 @@
       <p class="action" v-if="data.actionText && data.actionLink">
         <NavLink class="action-button" :item="actionLink"/>
       </p>
-    </div>
+    </div> 
+    <Content custom/>
     <div class="features" v-if="data.features && data.features.length">
       <div class="feature" v-for="feature in data.features">
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
       </div>
     </div>
-    <Content custom/>
     <div class="footer" v-if="data.footer">
       {{ data.footer }}
     </div>
@@ -53,6 +53,7 @@ export default {
   padding: $navbarHeight 2rem 0;
   max-width: 960px;
   margin: 0px auto;
+  text-align: center;
 
   .hero {
     text-align: center;
@@ -77,21 +78,26 @@ export default {
       line-height: 1.3;
       color: lighten($textColor, 40%);
     }
+  }
 
-    .action-button {
-      display: inline-block;
-      font-size: 1.2rem;
-      color: #fff;
-      background-color: $accentColor;
-      padding: 0.8rem 1.6rem;
-      border-radius: 4px;
-      transition: background-color 0.1s ease;
-      box-sizing: border-box;
-      border-bottom: 1px solid darken($accentColor, 10%);
+  .action-button {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: $accentColor;
+    padding: 0.8rem 1.6rem;
+    border-radius: 4px;
+    transition: background-color 0.1s ease;
+    box-sizing: border-box;
+    border-bottom: 1px solid darken($accentColor, 10%);
 
-      &:hover {
-        background-color: lighten($accentColor, 10%);
-      }
+    &:hover {
+      background-color: lighten($accentColor, 10%);
+    }
+
+    &.smaller {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
     }
   }
 

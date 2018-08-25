@@ -100,12 +100,6 @@ export default {
       nprogress.done();
       this.isSidebarOpen = false;
     });
-
-    this.so = ScrollOut({
-      scope: this.$el,
-      targets: ".extra-class",
-      threshold: 0.1
-    });
   },
 
   destroyed() {
