@@ -332,8 +332,8 @@ The following context object is passed to each of the event handlers.
 
 | Variable        | Description                                                                                                                                         |
 | :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--intersect-x` | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom                                                                       |
-| `--intersect-y` | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right                                                                       |
+| `--intersect-x` | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right                                                                       |
+| `--intersect-y` | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom                                                                       |
 | `--offset-x`    | The number of pixels from the left side of the scrolling element.                                                                                   |
 | `--offset-y`    | The number of pixels from the top of the scrolling element                                                                                          |
 | `--viewport-x`  | The horizontal position of an element relative to the center of viewport. Left = -1, centered = 0, and 1 = Right. This is most useful for parallax. |
