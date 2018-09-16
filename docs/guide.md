@@ -230,6 +230,7 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 ## What's New?
 
+- v2.2.2 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/next-up-scrollout-2-2) to read about ```--scroll-percent-x/y```, ```--viewport-x/y```, and changes to ```cssProps```
 - v2.0.0 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/introducing-scroll-out-2) for all the exciting new features in 2.0.0
 
 ## API
