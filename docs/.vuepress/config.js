@@ -46,7 +46,7 @@ module.exports = {
       "meta",
       {
         property: "og:description",
-        content: "CSS Vars for split words, chars, images and more!"
+        content: "Effects and CSS Vars on Scroll!"
       }
     ],
     // prettier-ignore
