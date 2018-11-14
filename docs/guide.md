@@ -46,7 +46,7 @@ Install scroll-out from NPM:
 npm i scroll-out -S
 ```
 
-Them import ScrollOut from the package and call it
+Then import ScrollOut from the package and call it
 
 ```js
 import ScrollOut from "scroll-out";
