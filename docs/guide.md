@@ -168,7 +168,7 @@ The following example shows how to create a sticky header with ScrollOut.
             right: 0;
             height: 100px;
         }
-        .sticky-header[data-scroll="on"] {
+        .sticky-header[data-scroll="in"] {
             position: fixed;
         }
     </style>
