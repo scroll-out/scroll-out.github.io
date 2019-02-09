@@ -84,7 +84,7 @@ Add this to your page to select all elements with `data-scroll` on them.
 
 ```html
 <script>
-ScrollOut();
+  ScrollOut();
 </script>
 ```
 
@@ -152,39 +152,39 @@ The following example shows how to create a sticky header with ScrollOut.
 
 ```html
 <html>
-<head>
+  <head>
     <style>
-        .hero {
-            height: 400px;
-        }
-        .header {
-            position: relative;
-            height: 100px;
-        }
-        .sticky-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-        }
-        .sticky-header[data-scroll="in"] {
-            position: fixed;
-        }
+      .hero {
+        height: 400px;
+      }
+      .header {
+        position: relative;
+        height: 100px;
+      }
+      .sticky-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+      }
+      .sticky-header[data-scroll="in"] {
+        position: fixed;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="hero"></div>
     <div class="header">
-        <div class="sticky-header">HEADER</div>
+      <div class="sticky-header">HEADER</div>
     </div>
     <script>
-        ScrollOut({
-            targets: '.sticky-header',
-            offset: 400
-        })
+      ScrollOut({
+        targets: ".sticky-header",
+        offset: 400
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -230,7 +230,7 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 
 ## What's New?
 
-- v2.2.2 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/next-up-scrollout-2-2) to read about ```--scroll-percent-x/y```, ```--viewport-x/y```, and changes to ```cssProps```
+- v2.2.2 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/next-up-scrollout-2-2) to read about `--scroll-percent-x/y`, `--viewport-x/y`, and changes to `cssProps`
 - v2.0.0 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/introducing-scroll-out-2) for all the exciting new features in 2.0.0
 
 ## API
@@ -277,6 +277,7 @@ The following context object is passed to each of the event handlers.
 | offsetY       | The distance from the top of the scrolling element                                                                                                  |
 | elementWidth  | The width of the element                                                                                                                            |
 | elementHeight | The height of the element                                                                                                                           |
+| index         | The index of the element vs other targets being tracked by ScrollOut.                                                                               |
 | intersectX    | The position of an element vs the viewport. Top = -1, In view = 0, 1 = Bottom                                                                       |
 | intersectY    | The position of an element vs the viewport. Left = -1, In view = 0, 1 = Right                                                                       |
 | viewportX     | The horizontal position of an element relative to the center of viewport. Left = -1, centered = 0, and 1 = Right. This is most useful for parallax. |
@@ -299,7 +300,7 @@ The following context object is passed to each of the event handlers.
 
 #### Scroll Direction
 
-`ScrollOut` detects the direction on the horizontal and vertical axis.  This is useful for creating CSS styles that are different when scrolling down vs scrolling up.
+`ScrollOut` detects the direction on the horizontal and vertical axis. This is useful for creating CSS styles that are different when scrolling down vs scrolling up.
 
 | Attributes          | Description                                                                           |
 | :------------------ | :------------------------------------------------------------------------------------ |
@@ -313,7 +314,7 @@ The following context object is passed to each of the event handlers.
 
 #### Scroll Percentage
 
-`ScrollOut` calculates the total percentage of a scrolling element is scrolled and provides that as a CSS Variable.  This is useful for parallax backgrounds or other effects.
+`ScrollOut` calculates the total percentage of a scrolling element is scrolled and provides that as a CSS Variable. This is useful for parallax backgrounds or other effects.
 
 | Variable             | Description                                                            |
 | :------------------- | :--------------------------------------------------------------------- |
