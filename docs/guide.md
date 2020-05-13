@@ -62,6 +62,8 @@ ScrollOut is compatible with all modern browsers and Internet Explorer. CSS Cust
 
 If you experience an issue with a browser that is prior to IE11, please [create an issue](https://github.com/scroll-out/scroll-out/issues/new) so we can look at adding support.
 
+Also, there is a [well known Edge bug](https://codepen.io/danwilson/details/zwqvOK) that may prevent transitions from firing properly. This should not be a problem when Edge Chromium is more widely used.
+
 ## Tips (How do I?...)
 
 ### Perform a Fade In with CSS
