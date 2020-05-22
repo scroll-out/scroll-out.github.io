@@ -230,8 +230,15 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 }
 ```
 
+## I'm having trouble
+Don't panic! Here are some common issues that can prevent ScrollOut from working correctly:
+
+1. Missing `<!DOCTYPE html>` or the browser is working in quirks mode. One of the biggest symptoms of this is `data-scroll="in"` and `data-scroll="out"` being reversed. Ensure the browser is not operating in quirks mode by having the proper DOCTYPE declaration.
+1. The `scrollingElement` is not provided to `ScrollOut` and the `document.scrollingElement` is not the container that is actually scrolling. If your code is setting `overflow` to something other than the body/html element, it needs to be passed to `ScrollOut` as `scrollingElement`.
+
 ## What's New?
 
+- v2.2.10 - In this release, offset and threshold have been improved to accept a function instead of just a number. Performance was improved and intermitent first render issues have been fixed.
 - v2.2.2 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/next-up-scrollout-2-2) to read about `--scroll-percent-x/y`, `--viewport-x/y`, and changes to `cssProps`
 - v2.0.0 - Checkout this [CodePen post](https://codepen.io/notoriousb1t/post/introducing-scroll-out-2) for all the exciting new features in 2.0.0
 
@@ -242,12 +249,12 @@ export class MyComponent implements AfterContentInit, OnDestroy {
 | Options          | Description                                                                                                                                                                                                                   |
 | :--------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | cssProps         | If `true`, all CSS Variables will be added to the scrolling element and all targets. If `false`, only the `[data-scroll]` property will be modified on targets. For more control, see [CSS Props Options](#css-props-options) |
-| offset           | The targets become visible when they reach this distance in pixels from the top of the screen. Setting this option overrides all other collision detection                                                                    |
+| offset           | The targets become visible when they reach this distance in pixels from the top of the screen. Setting this option overrides all other collision detection. This can also be a function that returns a number.                                                                    |
 | once             | Elements will only be changed from scroll-out to scroll-in once. This is useful if you want to transition all elements exactly once. The default value is false.                                                              |
 | scope            | Use this is specify the root element to use when resolving targets. If not specified, the scrollingElement is used.                                                                                                           |
 | scrollingElement | The scrolling container. When scope is not specified, it is assumed that all targets are children of this element. If not specified, the documentElement is used.                                                             |
 | targets          | An optional list of elements or a css selector. By default, this is `[data-scroll]`                                                                                                                                           |
-| threshold        | The ratio of the element that must be visible before it is marked as visible. Providing the value 0.2 would require 20% of the element to be visible before marking it visible                                                |
+| threshold        | The ratio of the element that must be visible before it is marked as visible. Providing the value 0.2 would require 20% of the element to be visible before marking it visible. This can also be a function that returns a number.                                                |
 
 ### Events
 
