@@ -256,6 +256,12 @@ Don't panic! Here are some common issues that can prevent ScrollOut from working
 | targets          | An optional list of elements or a css selector. By default, this is `[data-scroll]`                                                                                                                                           |
 | threshold        | The ratio of the element that must be visible before it is marked as visible. Providing the value 0.2 would require 20% of the element to be visible before marking it visible. This can also be a function that returns a number.                                                |
 
+### Special options on Elements
+
+The following attributes can be added to elements to enable options:
+
+- scrollout-once: add this to enable the once option for a single element
+
 ### Events
 
 #### Event Handlers
