@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "splitting": "^1.0.5",
-    "vuepress": "^0.13.0"
+    "vuepress": "^1.9.7"
   },
   "devDependencies": {
     "scroll-out": "^2.1.0"
